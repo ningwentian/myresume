@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>宁文天个人简历</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <script>
+        var desW = 640;
+        var winW = document.documentElement.clientWidth;//设备的宽度
+        document.documentElement.style.fontSize = winW / desW * 100 + 'px';//公式
+    </script>
+</head>
+<body>
+<section class="main">
+    <!-- 向上图标-->
+    <!--<span id="span"></span>-->
+    <!-- 音乐-->
+    <div class="music">
+        <audio src="audio/rongyao.mp3" loop preload="none" id="beyond"></audio>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <h1>个人简历</h1>
+            </div>
+            <div class="swiper-slide slide2">
+                <dl>
+                    <dt></dt>
+                    <dd>宁文天</dd>
+                </dl>
+                <div>
+                    <ul>
+                        <li><span>所在地</span><br/><span>北京</span></li>
+                        <li><span>个人介绍</span><br/><span>本人，不高不瘦，微胖不丑，走在北京街头不影响市容，也不至于让其他女生心花怒放，老公提心吊胆。学历不高不低。性格不外向也不内向，因为我好交友，爱交流，但又不过分活泼，所以我认为我不外向也不内向。最大爱好前端技术、爱代码，业余爱好打篮球，当然技术一般。优点有强烈的责任感，学习能力强，工作认真负责，敢于接受挑战和承受工作压力，热爱前端开发工作，自我管理能力强，有良好的执行力，</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 下一页-->
+            <div class="swiper-slide slide3">
+                <div>
+                    <a href="javascript:;">专业技能</a>
+                </div>
+                <p class="p1"><span>熟练掌握</span><span>JS</span></p>
+
+                <p class="p2"><span>熟练掌握</span><span>H5</span></p>
+
+                <p class="p3"><span>熟练掌握</span><span>CS3</span></p>
+
+                <p class="p4"><span>熟练掌握</span><span>Swiper</span></p>
+
+            </div>
+            <div class="swiper-slide slide4">
+                <div>
+                    <a href="javascript:;">GET IN TOUCH</a>
+                    <a href="javascript:;">关注我</a>
+                </div>
+                <p><a href="javascript:;"></a><span>18511149944</span></p>
+                <p><a href="javascript:;"></a><span>1070397449</span></p>
+                <p><a href="javascript:;"></a><span>18511149944</span></p>
+                <p><a href="javascript:;"></a><span>qq邮箱</span></p>
+                <p><a href="javascript:;"></a><span>1070397449@qq.com</span></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="bg"></section>
+<script src="js/swiper.min.js"></script>
+<script>
+    /*var mySelf = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        onTransitionEnd: function (swiper) {
+            var slides = swiper.slides;
+            var curIndex = swiper.activeIndex;
+            var lastIndexSlide = slides.length - 1;
+            var trueIndexSlide = slides.length - 2;
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";
+                if (curIndex == index) {
+                    switch (index) {
+                        case 0:
+                            item.id = "page" + trueIndexSlide;
+                            break;
+                        case lastIndexSlide:
+                            item.id = "page1";
+                            break;
+                        default:
+                            item.id = "page" + curIndex;
+                            break;
+                    }
+                }
+            });
+        }
+
+    });
+    //音频处理
+    var music = document.querySelector('.music');
+    var beyond = document.querySelector('#music1');
+    var oSpan = document.querySelector('#span');
+    window.setTimeout(function () {
+        music1.play();
+        music1.addEventListener('canplay', function () {
+            music.className = 'music musicCur';
+        });
+        oSpan.className = 'upDay';
+    }, 1000);
+    //通过paused这个属性判断音频文件是播放的还是停止的 beyond.paused=true,说明音频文件目前是停止播放
+    //让音频文件播放play(),让音频文件停止是pause()方法
+    music.addEventListener('click', function () {
+        if (music1.paused) {
+            music1.play();
+            music.className = 'music musicCur';
+        } else {
+            music1.pause();
+            music.className = 'music';
+            music.style.opacity = 1;
+        }
+    }, false)*/
+    var mySwiper = new Swiper(".swiper-container", {
+        direction: 'vertical',
+        loop: true,
+        onSlideChangeEnd: function (swiper) {
+            var slides = swiper.slides;//获取所有的滑块
+            var curIndex = swiper.activeIndex;//当前活动的滑块
+            var trueSlideNum = slides.length - 2;//真实滑块的个数
+            var lastSlideNum = trueSlideNum + 1;
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";
+                if (index === curIndex) {
+                    switch (index) {
+                        case 0:
+                            item.id = "page" + trueSlideNum;
+                            break;
+                        case lastSlideNum:
+                            item.id = "page1";
+                            break;
+                        default:
+                            item.id = "page" + curIndex;
+                    }
+                    /*slides[index].id = "page" + (index + 1);*/
+                }
+            })
+        },
+        onInit: function (swiper) {
+            //初始化完成后给第一个滑块增加动画效果
+            /*var slides = swiper.slides;
+             slides[0].id = "page1";*/
+        }
+    });
+    var beyond = document.querySelector("#beyond");
+    var music = document.querySelector(".music");
+    var oSpan = document.querySelector('#span');
+    window.setTimeout(function () {
+        beyond.play();//音频播放 边缓存边播放
+        beyond.addEventListener("canplay", function () {
+            music.className = "music musicMove";
+            music.style.opacity = 1;
+        });
+    }, 1000);
+    music.addEventListener("click", function () {
+        if (beyond.paused) {
+            beyond.play();
+            music.className = "music musicMove";
+        } else {
+            beyond.pause();
+            music.className = "music";
+        }
+    });
+</script>
+</body>
+</html>
